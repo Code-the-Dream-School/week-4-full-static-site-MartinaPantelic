@@ -5,7 +5,7 @@
 
 /*GENERAL*/
 /*color-variables*/
-
+$black: #000;
 $white: #fff;
 $brown: #684d3f;
 $orange: #FDBC67;
@@ -16,7 +16,9 @@ $green: #79C255;
   margin: 0;
   padding: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 ul {
   list-style: none;
 }
@@ -34,9 +36,11 @@ body {
 }
 
 .h1,
+.h2,
 .h3 {
   font-family: 'Old Standard TT', serif;
 }
+
 
 /*bootstrap*/
 .btn-primary {
@@ -63,15 +67,24 @@ body {
 .header {
   position: fixed;
   background-color: transparentize($white, .2);
-  z-index: 99;
+  z-index: 3;
   top: 0;
   width: 100%;
+  -webkit-box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
+  -moz-box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
+  box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
 }
 
-.navbar-nav {
-  a {
+.navbar-expand-lg .navbar-nav {
+  .nav-link {
     color: $brown;
     font-weight: bold;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    &:hover {
+      color: $green;
+    }
   }
 }
 
@@ -193,20 +206,88 @@ p {
   text-align: justify;
 }
 
-.video-wrap {
-  position: relative;
+/*----------
+------------- video ------------------------------------------------------------------ */
 
-  video {
-    width: 100%;
-  }
+.videos-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 
-  .play-btn {
+.video-container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('media/img/video-poster.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 0;
+  padding-bottom: 40%;
+
+  .play-video {
     position: absolute;
-    top: 50%;
-    top: 50%;
+    top: calc(33% + 50px);
     left: 50%;
     transform: translate(-50%, -50%);
     width: 12vw;
+    background-color: transparent;
+    border: none !important;
+    outline: none !important;
+
+    img {
+      width: 10vw;
+    }
+  }
+}
+.video-wrap {
+  position: relative;
+  video {
+    width: 100%;
+  }
+}
+.video-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: transparentize($black, 0.5);
+  z-index: 10;
+}
+
+.video-holder {
+  position: absolute;
+  max-width: 1440px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video {
+    display: none;
+  }
+}
+
+.video-close {
+  width: 50px;
+  height: 50px;
+  background-color: transparentize($white, .2);
+  color: $green;
+  position: absolute;
+  top: 66px;
+  right: 36px;
+  margin: 10px;
+  text-align: center;
+
+  .fa {
+    font-size: 3rem;
   }
 }
 
@@ -220,6 +301,7 @@ p {
   table {
     background-color: $white;
     margin-left: 1%;
+    min-width: 500px;
   }
 
   thead th {
@@ -236,13 +318,17 @@ p {
   td {
     text-align: center;
   }
+
+  .container {
+    overflow-x: auto;
+  }
 }
 
 
 .full-width-div {
   width: 100vw;
   position: relative;
-  margin-left: -51vw;
+  margin-left: calc(-50vw - 9px);
   left: 50%;
 
   span {
@@ -276,7 +362,6 @@ p {
   display: flex;
 }
 
-
 .email {
   margin-bottom: 5px;
   color: $white;
@@ -289,6 +374,10 @@ p {
     margin: 10px;
     padding: 10px;
     color: $white;
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
   }
 }
 

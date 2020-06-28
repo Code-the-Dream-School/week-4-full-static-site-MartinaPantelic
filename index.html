@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="favicon.ico">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -12,7 +14,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.15-rc1/mediaelementplayer.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
-  <title>Week 4</title>
+  <title>Pretzelitious</title>
 </head>
 
 <body>
@@ -29,31 +31,31 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Programs</a>
+            <a class="nav-link" href="#programs">Programs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Video</a>
+            <a class="nav-link" href="#video">Video</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Nutrition facts</a>
+            <a class="nav-link" href="#table">Nutrition facts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#video">Contact</a>
           </li>
         </ul>
         <a class="navbar-brand d-none d-lg-block" href="/"><img src="logo.svg" alt="logo"></a>
       </div>
     </nav>
   </header>
-  <main>
+  <main id="top">
     <section class="hero-img mb-5" style="background-image:url('media/img/back-img.jpg')">
       <h1 class="hero-h1 h1">Taste <br>Pretzelitious!</h1>
     </section>
     <div class="container">
-      <section class="picto-sec row mb-3">
+      <div class="picto-sec row mb-3" id="programs">
         <article class="col-md-4 picto-wrap mb-3">
           <div class="picto-img mb-3"><img src="media/icons/cupcake.svg" alt="cupcake-icon"></div>
           <h3 class="h3">Sweet Program</h3>
@@ -81,14 +83,24 @@
             quae laboriosam nisi ratione?
           </p>
         </article>
-      </section>
-      <section class="video-wrap mb-5">
-        <video src="media/video/video.mp4" poster="media/img/video-poster.jpg" controls></video>
-        <!-- <button type="button" class="play-btn"><img src="media/icons/play.svg" alt="play-btn" ></button>-->
-      </section>
-      <section class="table-wrap mb-5 full-width-div">
+      </div>
+      <!-- <h2 class="h2 text-center mb-5">See our Magic</h2> -->
+      <div class="video-container video-wrap mb-5"  data-video-parent id="video">
+              <button type="button" class="play-video"  data-play-video><img src="media/icons/play.svg" alt="play-btn" ></button>
+							<div class="video-overlay" data-video>
+								<div class="video-holder">
+                    <button type="button" class="video-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+									<video controls>
+										<source src="media/video/video.mp4" type="video/mp4">
+									</video>
+								</div>
+							</div>
+      </div>
+      <!-- <h2 class="h2 text-center mb-5">Eat healthy</h2> -->
+      <div class="table-wrap mb-5 full-width-div" id="table">
+         
         <div class="container">
-          <table class="table table-responsive-sm">
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -123,14 +135,14 @@
         <span></span>
         <span></span>
         <span></span>
-      </section>
-      <section class="form-wrap mb-5">
+      </div>
+      <div class="form-wrap mb-5" id="form">
         <form class="needs-validation form-contact" novalidate autocomplete="off">
-          <div class="container-fluid">
-            <h2 class="text-center mb-5">Contact us!</h2>
+          <div class="container">
+            <h2 class="h2 text-center mb-5">Contact us!</h2>
             <div class="row">
               <div class="form-group col-lg-6">
-                <label for="inputFirstNameApp">Name</label>
+                <label for="inputFirstName">Name</label>
                 <input type="text" class="form-control" id="inputFirstName" placeholder="" required>
                 <div class="invalid-tooltip">
                   This field is required
@@ -153,13 +165,13 @@
                 </div>
               </div>
               <div class="form-group col-lg-6">
-                <label for="validationCustom08">Phone</label>
+                <label for="phone">Phone</label>
                 <input type="tel" placeholder="Format: 1234567890" pattern=".{10}" class="form-control"
-                  id="validationCustom08" oninput="check(this)">
+                  id="phone" oninput="check(this)">
               </div>
             </div>
             <div class="form-group">
-              <label for="position">Reason for conatact</label>
+              <label for="position">Reason for contact</label>
               <select class="form-control" id="position">
                 <option value="">Please select</option>
                 <option value="Front End Developer">I want to order</option>
@@ -182,13 +194,7 @@
             </div>
           </div>
         </form>
-      </section>
-
-      <footer>
-        <ul>
-          <li><a href="javascript:;"></a></li>
-        </ul>
-      </footer>
+      </div>
 
     </div>
 
@@ -208,8 +214,7 @@
   <!-- Optional JavaScript -->
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -217,8 +222,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-  <!-- video library-->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.15-rc1/mediaelement-and-player.min.js"></script> -->
   <script src="script.js"></script>
 </body>
 
