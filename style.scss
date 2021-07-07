@@ -1,0 +1,387 @@
+/*sass --watch style.scss:style.css*/
+/*MIXINS*/
+
+@import "breakpoints";
+
+/*GENERAL*/
+/*color-variables*/
+$black: #000;
+$white: #fff;
+$brown: #684d3f;
+$orange: #FDBC67;
+$green: #79C255;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+
+a:hover {
+  color: $orange;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.continer {
+  width: 870px;
+}
+
+.h1,
+.h2,
+.h3 {
+  font-family: 'Old Standard TT', serif;
+}
+
+
+/*bootstrap*/
+.btn-primary {
+  background-color: $orange;
+  border: none;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $green;
+  }
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  background-position: right calc(.375em + .5rem) center;
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label {
+  color: inherit;
+}
+
+/*HEADER NAVIGATION*/
+
+.header {
+  position: fixed;
+  background-color: transparentize($white, .2);
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
+  -moz-box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
+  box-shadow: 0px 10px 17px 0px rgba($black, 0.07);
+}
+
+.navbar-expand-lg .navbar-nav {
+  .nav-link {
+    color: $brown;
+    font-weight: bold;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    &:hover {
+      color: $green;
+    }
+  }
+}
+
+.navbar-toggler {
+  &:hover {
+    span {
+      background-color: $orange;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    span {
+      background-color: $orange;
+    }
+  }
+
+  span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: $green;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+      opacity 0.55s ease;
+  }
+
+  span {
+    &::first-child {
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+/*
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}*/
+
+
+/*MAIN CONTENT*/
+
+.hero-img {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: center center;
+
+  @include media-breakpoint-up(md) {
+    align-items: flex-start;
+  }
+}
+
+.hero-h1 {
+  color: $white;
+  background: $orange;
+  width: fit-content;
+  padding: 2%;
+  font-size: 2rem;
+
+  @include media-breakpoint-up(md) {
+    font-size: 3rem;
+    margin-left: 2rem;
+  }
+}
+
+.picto-img {
+  margin-bottom: 15px;
+  width: 50%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.picto-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .h3 {
+    text-align: center;
+  }
+}
+
+p {
+  text-align: justify;
+}
+
+/*----------
+------------- video ------------------------------------------------------------------ */
+
+.videos-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.video-container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  background-image: url('media/img/video-poster.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 0;
+  padding-bottom: 40%;
+
+  .play-video {
+    position: absolute;
+    top: calc(33% + 5vw);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12vw;
+    background-color: transparent;
+    border: none !important;
+    outline: none !important;
+
+    img {
+      width: 10vw;
+    }
+  }
+}
+.video-wrap {
+  position: relative;
+  video {
+    width: 100%;
+  }
+}
+.video-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: transparentize($black, 0.5);
+  z-index: 10;
+}
+
+.video-holder {
+  position: absolute;
+  max-width: 1440px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video {
+    display: none;
+  }
+}
+
+.video-close {
+  width: 50px;
+  height: 50px;
+  background-color: transparentize($white, .2);
+  color: $green;
+  position: absolute;
+  top: 66px;
+  right: 36px;
+  margin: 10px;
+  text-align: center;
+
+  .fa {
+    font-size: 3rem;
+  }
+}
+
+/*----------
+------------- table ------------------------------------------------------------------ */
+
+.table-wrap {
+  background-color: $orange;
+  padding: 1rem 0 0;
+
+  table {
+    background-color: $white;
+    margin-left: 1%;
+    min-width: 500px;
+  }
+
+  thead th {
+    background-color: $green;
+    color: $white;
+
+  }
+
+  th {
+    text-align: center;
+    color: darken($green, 20%);
+  }
+
+  td {
+    text-align: center;
+  }
+
+  .container {
+    overflow-x: auto;
+  }
+}
+
+
+.full-width-div {
+  width: 100vw;
+  position: relative;
+  margin-left: calc(-50vw - 9px);
+  left: 50%;
+
+  span {
+    display: block;
+    height: 3px;
+    background-color: $orange;
+
+    &:first-of-type {
+      background-color: $brown;
+    }
+
+    &:nth-of-type(3) {
+      background-color: $white;
+    }
+
+    &:last-of-type {
+      background-color: $green;
+    }
+  }
+
+}
+
+/*----------
+------------- footer ------------------------------------------------------------------ */
+
+.footer {
+  background-color: $brown;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.email {
+  margin-bottom: 5px;
+  color: $white;
+}
+
+.social {
+  display: flex;
+
+  a {
+    margin: 10px;
+    padding: 10px;
+    color: $white;
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.footer small {
+  color: $white;
+  margin-bottom: 15px;
+}
